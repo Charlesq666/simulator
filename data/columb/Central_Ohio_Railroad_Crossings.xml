@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <title>Central Ohio Railroad Crossings</title>
+                <geoform>vector digital data</geoform>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract>This dataset contains point features that represent Railroad Crossings in Central Ohio. Each highway-rail or pathway crossing is assigned a unique alphanumeric seven digit identifier by the Federal Railroad Administration (FRA) and the United States Department of Transportation (USDOT) as a part of the Rail Safety Improvement Act of 2008. This unique identifier is stored in a national database that can be used to quickly retrieve information about the physical and operating characteristics of both public and private crossings. In addition, this information can be used by Emergency Personnel to quickly and accurately locate calls for service. This unique identifier is commonly referred to as a "Railroad Crossing ID" or "FRA Number". Each Railroad Crossing must have this number posted on a metal plate at each crossing. Many crossings have a sign that includes the name of the railroad and an emergency contact telephone number in addition to the Railroad Crossing ID.This information can be retrieved remotely from the Federal Railroad Administration, Office of Safety Analysis' website at: http://safetydata.fra.dot.gov/OfficeofSafety/PublicSite/Crossing/Crossing.aspx</abstract>
+            <purpose>This dataset contains point features that represent the locations of Railroad Crossings in Central Ohio.</purpose>
+        </descript>
+        <status>
+            <update>As needed</update>
+        </status>
+        <spdom>
+            <bounding>
+                <westbc>-83.622348</westbc>
+                <eastbc>-82.213504</eastbc>
+                <northbc>40.436194</northbc>
+                <southbc>39.618368</southbc>
+            </bounding>
+        </spdom>
+        <keywords>
+            <theme>
+                <themekt>None</themekt>
+                <themekey>Ohio</themekey>
+                <themekey>Columbus</themekey>
+                <themekey>City</themekey>
+                <themekey>Transportation</themekey>
+                <themekey>Infrastructure</themekey>
+                <themekey>Rail</themekey>
+                <themekey>Railroad</themekey>
+                <themekey>Railroad Crossing</themekey>
+                <themekey>Police</themekey>
+                <themekey>Fire</themekey>
+                <themekey>CPD</themekey>
+                <themekey>CFD</themekey>
+            </theme>
+        </keywords>
+        <accconst>None</accconst>
+        <useconst>This data is dedicated to the public domain under the Creative Commons Universal License (CC0).</useconst>
+        <ptcontac>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>City of Columbus Department of Technology</cntorg>
+                    <cntper>GIS Division</cntper>
+                </cntorgp>
+                <cntemail>ColumbusGIS@columbus.gov</cntemail>
+            </cntinfo>
+        </ptcontac>
+        <datacred>City of Columbus, Department of Public Safety, Division of Police
+United States Department of Transportation (USDOT)
+Federal Railroad Administration, Office of Safety Analysis (FRA)</datacred>
+        <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.3.1.4959</native>
+    </idinfo>
+    <spdoinfo>
+        <direct>Vector</direct>
+        <ptvctinf>
+            <sdtsterm>
+                <sdtstype>Entity point</sdtstype>
+                <ptvctcnt>497</ptvctcnt>
+            </sdtsterm>
+        </ptvctinf>
+    </spdoinfo>
+    <eainfo>
+        <detailed>
+            <enttyp>
+                <enttypl>COC.CPD_RAILROAD_CROSSINGS</enttypl>
+            </enttyp>
+            <attr>
+                <attrlabl>OBJECTID</attrlabl>
+                <attrdef>Internal feature number.</attrdef>
+                <attrdefs>Esri</attrdefs>
+                <attrdomv>
+                    					
+                    <udom>Sequential unique whole numbers that are automatically generated.</udom>
+                    				
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>XING_ID</attrlabl>
+                <attrdef>Seven digit alphanumeric unique identifier beginning with six characters and ending with a single digit number</attrdef>
+                <attrdefs>Federal Railroad Administration (FRA) Office of Safety Analysis</attrdefs>
+            </attr>
+            <attr>
+                <attrlabl>COUNTY</attrlabl>
+                <attrdef>The name of the County that the Railroad Crossing is located in.</attrdef>
+                <attrdefs>City of Columbus, Department of Public Safety, Division of Police</attrdefs>
+            </attr>
+            <attr>
+                <attrlabl>RAIL_NAME</attrlabl>
+                <attrdef>The name of the Railroad responsible for the Railroad Crossing.</attrdef>
+                <attrdefs>City of Columbus Department of Public Safety Division of Police Communications Bureau GIS Section</attrdefs>
+                <attrdomv>
+                    					
+                    <edom>
+                        						
+                        <edomv>BCRR</edomv>
+                        						
+                        <edomvd>Buckeye Central Scenic Railroad</edomvd>
+                        						
+                        <edomvds>Public Utilities Commission of Ohio</edomvds>
+                        					
+                    </edom>
+                    				
+                </attrdomv>
+                <attrdomv>
+                    					
+                    <edom>
+                        						
+                        <edomv>CCRA</edomv>
+                        						
+                        <edomvd>Camp Chase Industrial Railroad</edomvd>
+                        						
+                        <edomvds>Public Utilities Commission of Ohio</edomvds>
+                        					
+                    </edom>
+                    				
+                </attrdomv>
+                <attrdomv>
+                    					
+                    <edom>
+                        						
+                        <edomv>CR</edomv>
+                        						
+                        <edomvd>Consolidated Rail Corporation</edomvd>
+                        						
+                        <edomvds>Public Utilities Commission of Ohio</edomvds>
+                        					
+                    </edom>
+                    				
+                </attrdomv>
+                <attrdomv>
+                    					
+                    <edom>
+                        						
+                        <edomv>CSX</edomv>
+                        						
+                        <edomvd>CSX Transportation, Inc.</edomvd>
+                        						
+                        <edomvds>Public Utilities Commission of Ohio</edomvds>
+                        					
+                    </edom>
+                    				
+                </attrdomv>
+                <attrdomv>
+                    					
+                    <edom>
+                        						
+                        <edomv>CUOH</edomv>
+                        						
+                        <edomvd>Columbus &amp; Ohio River Railroad (Louisville Division)</edomvd>
+                        						
+                        <edomvds>Public Utilities Commission of Ohio</edomvds>
+                        					
+                    </edom>
+                    				
+                </attrdomv>
+                <attrdomv>
+                    					
+                    <edom>
+                        						
+                        <edomv>OHCR</edomv>
+                        						
+                        <edomvd>Columbus &amp; Ohio River Railroad (Pittsburgh Division)</edomvd>
+                        						
+                        <edomvds>Public Utilities Commission of Ohio</edomvds>
+                        					
+                    </edom>
+                    				
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>STREET_NME</attrlabl>
+                <attrdef>The name of the highway or pathway that the Railroad crosses if available.</attrdef>
+                <attrdefs>City of Columbus Department of Public Safety Division of Police</attrdefs>
+            </attr>
+            <attr>
+                <attrlabl>MILEPOST</attrlabl>
+                <attrdef>A post or sign along each mile of a railroad track identifying and marking the distance from the actual or nominal start of a line which is usually the principal terminus or juniction with a more major line.</attrdef>
+                <attrdefs>Federal Railroad Administration</attrdefs>
+            </attr>
+            <attr>
+                <attrlabl>LATITUDE</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>LONGITUDE</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>SHAPE</attrlabl>
+                <attrdef>Feature geometry.</attrdef>
+                <attrdefs>Esri</attrdefs>
+                <attrdomv>
+                    					
+                    <udom>Coordinates defining the features.</udom>
+                    				
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>GLOBALID</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>HYPERLINK</attrlabl>
+                <attrdef>The specific website address for the Railroad Crossing that contains the following information:   Location and Classification Information, Picture(s) of the railroad crossing, Site Information, Railroad Information, Warning Devices, Traffic, Highway, and Site Sketches.</attrdef>
+                <attrdefs>Public Utilities Commission of Ohio</attrdefs>
+            </attr>
+        </detailed>
+    </eainfo>
+    <metainfo>
+        <metd>20170705</metd>
+        <metc>
+            <cntinfo>
+                <!--no contact person or organization name available-->
+            </cntinfo>
+        </metc>
+        <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+    </metainfo>
+</metadata>
