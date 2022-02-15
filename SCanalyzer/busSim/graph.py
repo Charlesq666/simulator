@@ -92,13 +92,16 @@ class Graph:
         self._logger.debug("start clearing graph")
         self._clear_graph()
         self._logger.debug("start runnning dijkstra")
+        # print('before dijkstra', self.nodes)
         self._dijkstra(start, route_remove)
+        # print('after dijkstra', self.nodes)
 
         self._logger.debug("start collecting nodes")
         stops_radius_dict = dict()
         start_time = pd.to_timedelta(self.start_time)
         end_time = start_time + pd.to_timedelta(self.elapse_time)
         for node in self.nodes:
+            # print(f'{node.walking_distance=}, {self.max_walking_distance=}')
             if node.walking_distance < self.max_walking_distance:
                 radius = self.max_walking_distance - node.walking_distance
                 time_left = (end_time - node.arrival_time).total_seconds()
@@ -165,6 +168,7 @@ class Graph:
         for index, row in self.df.iterrows():
             node = Node(row["trip_id"], row["route_short_name"], row["stop_sequence"], row["stop_id"], row["stop_x"],
                         row["stop_y"], row["arrival_time"], self.max_walking_distance)
+            # print('constructing', f'{node.walking_distance}')
             self.nodes.append(node)
             trip_node_dict[row["trip_id"]].append(node)
             stop_node_dict[row["stop_id"]].append(node)

@@ -1,0 +1,29 @@
+2022-02-14 21:44:37,330 - INFO - Start initializing sim
+2022-02-14 21:44:37,330 - DEBUG - Start generating dataframe
+2022-02-14 21:44:37,837 - DEBUG - start generating graph
+2022-02-14 21:44:38,687 - DEBUG - generated 1761 nodes in the graph
+2022-02-14 21:44:38,687 - INFO - Sim successfully initialized
+2022-02-14 21:44:41,380 - INFO - Start searching graph
+2022-02-14 21:44:41,392 - DEBUG - start locating starting stop
+2022-02-14 21:44:41,396 - DEBUG - start clearing graph
+2022-02-14 21:44:41,396 - DEBUG - start runnning dijkstra
+2022-02-14 21:44:41,399 - DEBUG - start collecting nodes
+2022-02-14 21:44:41,402 - DEBUG - start generating gdf
+2022-02-14 21:44:41,410 - DEBUG - start generating geometry buffer with radius
+2022-02-14 21:44:41,421 - INFO - Finish generating gdf
+2022-02-14 21:44:43,347 - INFO - Start searching graph
+2022-02-14 21:44:43,347 - DEBUG - start locating starting stop
+2022-02-14 21:44:43,352 - DEBUG - start clearing graph
+2022-02-14 21:44:43,352 - DEBUG - start runnning dijkstra
+2022-02-14 21:44:43,352 - DEBUG - start collecting nodes
+2022-02-14 21:44:43,353 - DEBUG - start generating gdf
+2022-02-14 21:44:43,358 - DEBUG - start generating geometry buffer with radius
+2022-02-14 21:44:43,359 - INFO - Finish generating gdf
+2022-02-14 21:44:43,893 - INFO - Start searching graph
+2022-02-14 21:44:43,893 - DEBUG - start locating starting stop
+2022-02-14 21:44:43,896 - DEBUG - start clearing graph
+2022-02-14 21:44:43,896 - DEBUG - start runnning dijkstra
+2022-02-14 21:44:43,896 - DEBUG - start collecting nodes
+2022-02-14 21:44:43,897 - DEBUG - start generating gdf
+2022-02-14 21:44:43,903 - DEBUG - start generating geometry buffer with radius
+2022-02-14 21:44:43,910 - INFO - Finish generating gdf

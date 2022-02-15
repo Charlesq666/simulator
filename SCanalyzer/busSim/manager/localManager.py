@@ -10,7 +10,7 @@ import time
 from tqdm import tqdm
 
 class LocalManager(BaseManager):
-    def __init__(self, gtfs_path, out_path, borders):
+    def __init__(self, gtfs_path, out_path, borders=None):
         super().__init__(gtfs_path, borders)
         self.out_path = out_path
 
