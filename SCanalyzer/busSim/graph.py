@@ -85,6 +85,7 @@ class Graph:
     # return format: [{“stop_id”, “stop_y”, “stop_x”, “radius”}, ... ]
     def search(self, start_stop=None, start_point=None, route_remove=[]):
         if self.empty:
+            print("graph is empty")
             return
 
         self._logger.debug("start locating starting stop")
@@ -99,7 +100,11 @@ class Graph:
         start_time = pd.to_timedelta(self.start_time)
         end_time = start_time + pd.to_timedelta(self.elapse_time)
         for node in self.nodes:
+            print('node', node)
+            print('max_walking', self.max_walking_distance)
             if node.walking_distance < self.max_walking_distance:
+                #FIXME: ADDED BY CHARLES    
+                print("walking distance < max_walking_distance")
                 radius = self.max_walking_distance - node.walking_distance
                 time_left = (end_time - node.arrival_time).total_seconds()
                 radius = min(radius, self.avg_walking_speed * time_left)
@@ -118,6 +123,7 @@ class Graph:
         for node in self.nodes:
             node.walking_distance = self.max_walking_distance
 
+#FIXME: Purpose??
     def _dijkstra(self, start, route_remove):
         pq = [(0, start)]
         while len(pq) > 0:
@@ -149,10 +155,15 @@ class Graph:
         stop_node_dict = defaultdict(list)
 
         map_grid = []
-        min_x = self.df.stop_x.min()
-        max_x = self.df.stop_x.max()
-        min_y = self.df.stop_y.min()
-        max_y = self.df.stop_y.max()
+        #FIXME: changeed stop_x to stop_lat, stop_y to stop_lon
+        # min_x = self.df.stop_x.min()
+        # max_x = self.df.stop_x.max()
+        # min_y = self.df.stop_y.min()
+        # max_y = self.df.stop_y.max()
+        min_x = self.df.stop_lat.min()
+        max_x = self.df.stop_lat.max()
+        min_y = self.df.stop_lon.min()
+        max_y = self.df.stop_lon.max()
 
         x_num = ceil((max_x - min_x) / self.max_walking_distance)
         y_num = ceil((max_y - min_y) / self.max_walking_distance)
@@ -163,14 +174,15 @@ class Graph:
             map_grid.append(x_list)
 
         for index, row in self.df.iterrows():
-            node = Node(row["trip_id"], row["route_short_name"], row["stop_sequence"], row["stop_id"], row["stop_x"],
-                        row["stop_y"], row["arrival_time"], self.max_walking_distance)
+            # FIXME: changed route_short_name to route_id, stop_x to stop_lat, stop_y to stop_lon
+            node = Node(row["trip_id"], row["route_id"], row["stop_sequence"], row["stop_id"], row["stop_lat"],
+                        row["stop_lon"], row["arrival_time"], self.max_walking_distance)
             self.nodes.append(node)
             trip_node_dict[row["trip_id"]].append(node)
             stop_node_dict[row["stop_id"]].append(node)
-            x_bucket = floor((row["stop_x"] - min_x) /
+            x_bucket = floor((row["stop_lat"] - min_x) /
                              self.max_walking_distance)
-            y_bucket = floor((row["stop_y"] - min_y) /
+            y_bucket = floor((row["stop_lon"] - min_y) /
                              self.max_walking_distance)
             map_grid[x_bucket][y_bucket].append(node)
 
@@ -215,6 +227,7 @@ class Graph:
                             if distance < self.max_walking_distance and start.arrival_time + time_delta < end.arrival_time:
                                 nodeCostPair = NodeCostPair(end, distance)
                                 start.children.append(nodeCostPair)
+        print("graph.node", self.nodes)
 
     def _find_start(self, start_stop, start_point):
         if start_stop is not None:
@@ -226,7 +239,8 @@ class Graph:
     def _find_start_stop(self, start_stop):
         for node in self.nodes:
             if node.stop_id == start_stop:
-                start_point = (node.stop_x, node.stop_y)
+                #FIXME: stop_x, stop_y, changed
+                start_point = (node.stop_lat, node.stop_lon)
                 return self._find_start_point(start_point)
 
     def _find_start_point(self, start_point):

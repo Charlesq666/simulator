@@ -1,0 +1,20 @@
+2022-02-14 15:42:17,384 - INFO - Start initializing sim
+2022-02-14 15:42:17,384 - DEBUG - Start generating dataframe
+2022-02-14 15:42:17,396 - DEBUG - start generating graph
+2022-02-14 15:42:17,398 - DEBUG - generated 4 nodes in the graph
+2022-02-14 15:42:17,398 - INFO - Sim successfully initialized
+2022-02-14 15:43:21,692 - INFO - Start searching graph
+2022-02-14 15:43:21,730 - DEBUG - start locating starting stop
+2022-02-14 15:43:21,730 - DEBUG - start clearing graph
+2022-02-14 15:43:21,730 - DEBUG - start runnning dijkstra
+2022-02-14 15:43:21,730 - DEBUG - start collecting nodes
+2022-02-14 15:43:22,603 - INFO - Start searching graph
+2022-02-14 15:43:22,603 - DEBUG - start locating starting stop
+2022-02-14 15:43:22,603 - DEBUG - start clearing graph
+2022-02-14 15:43:22,603 - DEBUG - start runnning dijkstra
+2022-02-14 15:43:22,603 - DEBUG - start collecting nodes
+2022-02-14 15:43:22,708 - INFO - Start searching graph
+2022-02-14 15:43:22,708 - DEBUG - start locating starting stop
+2022-02-14 15:43:22,709 - DEBUG - start clearing graph
+2022-02-14 15:43:22,709 - DEBUG - start runnning dijkstra
+2022-02-14 15:43:22,709 - DEBUG - start collecting nodes

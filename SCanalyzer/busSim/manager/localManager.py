@@ -10,7 +10,7 @@ import time
 from tqdm import tqdm
 
 class LocalManager(BaseManager):
-    def __init__(self, gtfs_path, out_path, borders):
+    def __init__(self, gtfs_path, out_path, borders=None):
         super().__init__(gtfs_path, borders)
         self.out_path = out_path
 
@@ -59,7 +59,10 @@ class LocalManager(BaseManager):
         return result_df
 
     def read_gtfs(self, filename):
-        with ZipFile(self.gtfs_path) as zf:
+        with ZipFile(self.gtfs_path) as zf:   
+            # for fname in zf.namelist():
+            #     print(fname)       
+            # print(filename)
             with zf.open(filename) as f:
                 df = pd.read_csv(f, sep=",")
                 return df
