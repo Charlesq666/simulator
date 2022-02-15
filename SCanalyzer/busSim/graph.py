@@ -100,8 +100,8 @@ class Graph:
         start_time = pd.to_timedelta(self.start_time)
         end_time = start_time + pd.to_timedelta(self.elapse_time)
         for node in self.nodes:
-            print('node', node)
-            print('max_walking', self.max_walking_distance)
+            # print('node', node)
+            # print('max_walking', self.max_walking_distance)
             if node.walking_distance < self.max_walking_distance:
                 #FIXME: ADDED BY CHARLES    
                 print("walking distance < max_walking_distance")
@@ -127,6 +127,7 @@ class Graph:
     def _dijkstra(self, start, route_remove):
         pq = [(0, start)]
         while len(pq) > 0:
+            print('dj')
             curr_distance, curr_node = heapq.heappop(pq)
             # print(f"curr_distance: {curr_distance} curr_node: {curr_node}")
 
