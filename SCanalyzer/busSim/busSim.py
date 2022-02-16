@@ -54,6 +54,7 @@ class BusSim:
         self.max_walking_min = max_walking_min
         self.max_walking_distance = max_walking_min * 60.0 * avg_walking_speed
         self.stopTimes_final_df = self._gen_final_df(trip_delays)
+        print(f'new stopTimes_final_df {self.stopTimes_final_df}')
         self.graph = Graph(self.stopTimes_final_df, start_time,
                            elapse_time, self.max_walking_distance, avg_walking_speed)
         self._logger.info("Sim successfully initialized")
@@ -136,7 +137,7 @@ class BusSim:
 
 #TODO: ENCODING USING 3174, MAYBE NEEDED TO CHANGE
         gdf = gpd.GeoDataFrame(
-            df, geometry=gpd.points_from_xy(df.stop_x, df.stop_y), crs="EPSG:4326")
+            df, geometry=gpd.points_from_xy(df.stop_x, df.stop_y), crs="EPSG:3174")
 
         self._logger.debug("start generating geometry buffer with radius")
         gdf['geometry'] = gdf.geometry.buffer(gdf['radius'])
@@ -169,6 +170,16 @@ class BusSim:
 
 # FIXME: changed stops-3174 to stops.txt
         stops_df = self.manager.read_gtfs("stops.txt")
+
+#FIXME: use more elegente way
+        for i in range(len(stops_df)):
+            x,y = transform(float(stops_df.iloc[i]['stop_lat']), float(stops_df.iloc[i]['stop_lon']))
+            print(f"lat = {float(stops_df.iloc[i]['stop_lat'])}, lon = {float(stops_df.iloc[i]['stop_lon'])}")
+            print(f'x = {x}, y = {y}')
+            stops_df.at[i,'stop_lat'] = x
+            stops_df.at[i,'stop_lon'] = y
+        print(f'new Stops df {stops_df}')
+
         trips_df = self.manager.read_gtfs("trips.txt")
         stopTimes_df = self.manager.read_gtfs("stop_times.txt")
         calendar_df = self.manager.read_gtfs("calendar.txt")
@@ -214,7 +225,7 @@ class BusSim:
         stopTimes_final_df = self._get_valid_stopTime(
             stopTimes_merged_df, self.start_time, self.elapse_time).sort_values(by="arrival_time")
 
-        #FIXME:
+        #FIXME: chaged by charles
         print('stopTimes_final_df len', len(stopTimes_final_df))
 
         return stopTimes_final_df

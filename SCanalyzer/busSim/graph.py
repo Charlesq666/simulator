@@ -16,6 +16,7 @@ class Node:
         self.stop_x = stop_x
         self.stop_y = stop_y
         self.arrival_time = arrival_time
+
         # this should be modified by search in graph
         self.walking_distance = max_walking_distance
         self.children = []
@@ -83,6 +84,7 @@ class Graph:
 
     # return the area coverage data after performing graph search
     # return format: [{“stop_id”, “stop_y”, “stop_x”, “radius”}, ... ]
+    # start point is transfromed start_point from crs 4326 to 3174
     def search(self, start_stop=None, start_point=None, route_remove=[]):
         if self.empty:
             print("graph is empty")
@@ -100,8 +102,8 @@ class Graph:
         start_time = pd.to_timedelta(self.start_time)
         end_time = start_time + pd.to_timedelta(self.elapse_time)
         for node in self.nodes:
-            # print('node', node)
-            # print('max_walking', self.max_walking_distance)
+            print('node', node)
+            print('max_walking', self.max_walking_distance)
             if node.walking_distance < self.max_walking_distance:
                 #FIXME: ADDED BY CHARLES    
                 print("walking distance < max_walking_distance")
@@ -117,6 +119,7 @@ class Graph:
                     }
 
         stops_radius_list = [row for row in stops_radius_dict.values()]
+        print('stops_radius_list = ', stops_radius_list)
         return stops_radius_list
 
     def _clear_graph(self):
@@ -129,7 +132,7 @@ class Graph:
         while len(pq) > 0:
             print('dj')
             curr_distance, curr_node = heapq.heappop(pq)
-            # print(f"curr_distance: {curr_distance} curr_node: {curr_node}")
+            print(f"curr_distance: {curr_distance} curr_node: {curr_node}")
 
             if curr_distance > curr_node.walking_distance:
                 continue
@@ -244,6 +247,17 @@ class Graph:
                 start_point = (node.stop_lat, node.stop_lon)
                 return self._find_start_point(start_point)
 
+# self.trip_id = trip_id
+# self.route_short_name = route_short_name
+# self.stop_sequence = stop_sequence
+# self.stop_id = stop_id
+# self.stop_x = stop_x
+# self.stop_y = stop_y
+# self.arrival_time = arrival_time
+
+# # this should be modified by search in graph
+# self.walking_distance = max_walking_distance
+# self.children = []
     def _find_start_point(self, start_point):
         x, y = start_point
         start = Node(None, None, None, None, x, y,
@@ -252,13 +266,16 @@ class Graph:
         # gen edges by walking
         for end in self.nodes:
             # unreachable for sure (can't go back in time)
+            print(f'{start.arrival_time=}', f'{end.arrival_time=}')
             if start.arrival_time >= end.arrival_time:
                 continue
 
             # walk
             distance = start.distance(end)
+            print(f'{distance=}')
             time_delta = distance / self.avg_walking_speed
             time_delta = timedelta(seconds=time_delta)
+            print(f'{time_delta=}')
             if distance < self.max_walking_distance and start.arrival_time + time_delta < end.arrival_time:
                 nodeCostPair = NodeCostPair(end, distance)
                 start.children.append(nodeCostPair)
